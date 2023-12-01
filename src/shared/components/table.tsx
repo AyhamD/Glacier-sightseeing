@@ -7,7 +7,7 @@ interface TableProps {
   body: Helicopter[];
 }
 
-const Table = ({ headers, body, column = headers }: TableProps) => {
+const Table = ({ headers, body, column }: TableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 

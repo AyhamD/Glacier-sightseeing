@@ -29,11 +29,11 @@ const FilterComponent = ({ helicopters }: FilterProps) => {
   const filteredHelicopters = helicopters.filter((helicopter) => {
     const numericPrice = convertPrice(helicopter["Price ($)"]);
     return (
+      +filterCriteria.minQuantity <= +helicopter.Quantity &&
+      numericPrice >= filterCriteria.minPrice &&
       helicopter.Name?.toLowerCase().includes(
         filterCriteria.filterByName.toLowerCase()
-      ) &&
-      helicopter.Quantity >= filterCriteria.minQuantity &&
-      numericPrice >= filterCriteria.minPrice
+      )
     );
   });
 
