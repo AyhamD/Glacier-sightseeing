@@ -34,11 +34,15 @@ It is a react application to help The analysts in the finance department to unde
 
    - Allow users to sort data for better analysis.
 
-6. **Documentation:**
+6. **table pagination:**
+
+   - Allow users to navigate between pages if the data are bigger then 10.
+
+7. **Documentation:**
 
    - Provide clear documentation on how to use, contribute, and deploy the application.
 
-7. **GitHub Actions:**
+8. **GitHub Actions:**
 
 - Set up GitHub Actions for continuous integration and automated testing.
 
