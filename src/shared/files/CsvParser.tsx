@@ -1,20 +1,24 @@
 import Papa from "papaparse";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Helicopter from "../../components/Helicopters/Helicopter";
 
 interface CsvParserProps {
   file: File | null;
+  hasParsed: React.MutableRefObject<boolean>;
   onParse: (data: Helicopter[]) => void;
 }
 
-const CsvParser = ({ file, onParse }: CsvParserProps) => {
+const CsvParser = ({ hasParsed, file, onParse }: CsvParserProps) => {
   useEffect(() => {
     const parseCsv = (file: File) => {
       Papa.parse(file, {
         download: true,
         header: true,
         complete: (result) => {
-          onParse(result.data as Helicopter[]);
+          if (!hasParsed.current) {
+            onParse(result.data as Helicopter[]);
+            hasParsed.current = true; // to parse file just once
+          }
         },
       });
     };

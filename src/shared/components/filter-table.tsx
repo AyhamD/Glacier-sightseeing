@@ -45,6 +45,8 @@ const FilterComponent = ({ helicopters }: FilterProps) => {
     "Failure Rate",
     "Description",
     "Parent",
+    "helicopter costs upon purchase",
+    "total Cost",
   ];
 
   const tableColumn = [
@@ -55,6 +57,8 @@ const FilterComponent = ({ helicopters }: FilterProps) => {
     "Failure rate (1/year)",
     "Description",
     "Parent",
+    "OperatingCost",
+    "totalCost",
   ];
 
   return (
@@ -86,7 +90,6 @@ const FilterComponent = ({ helicopters }: FilterProps) => {
           onChange={handleFilterChange}
         />
       </label>
-
       <Table
         headers={tableHeaders}
         column={tableColumn}

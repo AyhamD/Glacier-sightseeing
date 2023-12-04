@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomFileUpload from "../buttons/FileUpload";
 
 interface FileUploadProps {
@@ -7,9 +7,9 @@ interface FileUploadProps {
 
 const FileUpload = ({ onFileChange }: FileUploadProps) => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      onFileChange(files[0]);
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      onFileChange(selectedFile);
     }
   };
 
